@@ -8,80 +8,142 @@ st.markdown("# Unemployment 💼")
 st.sidebar.markdown("# Unemployment 💼")
 st.markdown(footer, unsafe_allow_html=True)
 
+def get_path(focus):
+    if focus == 'Gender':
+        return ['Gender', 'District Name']
+    else:
+        return ['District Name', 'Gender']
+
+
+def get_sunburst_df(df, year):
+    # Make a copy of the original dataframe
+    df_copy = df.copy()
+    # We only care about Registered Unemployed people
+    df_copy = df_copy[df_copy['Demand_occupation'] == 'Registered unemployed']
+    # Filter by year
+    df_copy = df_copy[df_copy['Year'] == year]
+    # Group by Gender and District, to get yearly data, instead of monthly data
+    df_copy = df_copy.groupby(['Gender', 'District Name'])[['Gender', 'District Name', 'Number']].sum().reset_index()
+    # Get the average Monthly Unemployment numbers
+    df_copy['Number'] = (df_copy['Number'] / 12).astype(int)
+    return df_copy
+
+
+def get_trend_over_time_df(df):
+    # Make a copy of the original dataframe
+    df_copy = df.copy()
+    # We only care about Registered Unemployed people
+    df_copy = df_copy[df_copy['Demand_occupation'] == 'Registered unemployed']
+    # Group by Year, month and District
+    df_copy = df_copy.groupby(['Year', 'Month', 'District Name'])[['Year', 'Month', 'District Name', 'Number']].sum() \
+        .drop(columns=['Year']).reset_index()
+
+    month_labels = {'January': '01', 'February': '02', 'March': '03', 'April': '04', 'May': '05',
+                    'June': '06', 'July': '07', 'August': '08', 'September': '09',
+                    'October': '10', 'November': '11', 'December': '12'}
+    # Add a new column to use for Sorting
+    df_copy['Month'] = df_copy['Year'].map(str) + '-' + df_copy['Month'].map(month_labels)
+    return df_copy.sort_values('Month').rename(columns={'Number': 'Registered unemployed'})
+
+
+def get_treemap_df(df, district, is_proportional):
+    # Make a copy of the original dataframe
+    df_copy = df.copy()
+    # We only care about Registered Unemployed people
+    df_copy = df_copy[df_copy['Demand_occupation'] == 'Registered unemployed']
+    # Filter by district
+    df_copy = df_copy[df_copy['District Name'] == district]
+    # Group By Year and Neighborhood Name
+    df_copy = df_copy.groupby(['Year', 'Neighborhood Name'])[
+        ['Year', 'Neighborhood Name', 'Number']].sum().drop(columns=['Year']).reset_index()
+    # Get the average Unemployment Number per Month
+    df_copy['Number'] = (df_copy['Number'] / 12).astype(int)
+    if is_proportional:
+        # Get population dataframe and filter by district
+        pop_df = pd.read_csv('archive/population.csv')
+        pop_df = pop_df[pop_df['District.Name'] == district]
+        # Merge treemap with population Information
+        df_copy = df_copy.merge(pop_df, left_on=['Neighborhood Name', 'Year'], right_on=['Neighborhood.Name', 'Year']
+                                , how='inner')
+        df_copy['Registered unemployed'] = (df_copy['Number_x'] * 100 / df_copy['Number_y'])
+    else:
+        df_copy = df_copy.rename(columns={'Number': 'Registered unemployed'})
+    return df_copy
+
+
+def get_treemap_path(district, includes_year):
+    if includes_year:
+        return [px.Constant(district), 'Neighborhood Name', 'Year']
+    else:
+        return [px.Constant(district), 'Neighborhood Name']
+
+
 st.markdown("Unemployment rates can differ greatly from one district to another, based on multiple factors, "
             "including transportation networks, distance to financial and governmental centers, "
             "type of neighborhoods (housing, business, ...). In the following charts you can compare the Unemployment "
             "numbers, and find the best fit for you.")
 
+st.markdown('### Unemployment By Gender and District')
+
 df_district_unemployment = pd.read_csv('archive/unemployment.csv', na_values='No consta')
 df_district_unemployment.dropna(inplace=True)
-unique_districts = np.sort(df_district_unemployment['District Name'].unique())
-districts_selected = st.multiselect(
-    'Which districts you want to display',
-    unique_districts,
-    default=unique_districts
-)
 
-filtered_df_district = \
-    df_district_unemployment[(df_district_unemployment['Demand_occupation'] == 'Registered unemployed')
-                             & (df_district_unemployment['District Name'].isin(districts_selected))
-                             ].groupby(['Year', 'Month', 'District Name']).sum().reset_index()
-month_labels = {'January': '01', 'February': '02', 'March': '03', 'April': '04', 'May': '05',
-                'June': '06', 'July': '07', 'August': '08', 'September': '09',
-                'October': '10', 'November': '11', 'December': '12'}
+left_col, right_col = st.columns(2)
 
-filtered_df_district['Month num'] = filtered_df_district['Month'].apply(lambda x: month_labels[x])
+with left_col:
+    st.markdown('Choose the main focus of the Sunburst Chart. When you choose gender, you will see the overall '
+                'Unemployment statistics by Gender, and for each gender, the distribution per District. However '
+                'choosing District, will switch the order of the plot.')
+    focus_on = st.radio("Focus on:", ["Gender", "District"])
 
-for i in range(len(filtered_df_district)):
-    result = str(filtered_df_district.loc[i, 'Year']) + '-' + str(
-        filtered_df_district.loc[i, 'Month num'])
-    filtered_df_district.loc[i, 'month'] = result
+with right_col:
+    st.markdown('Choose the year that you want to see more information about')
+    year_radio = st.radio("Year:", df_district_unemployment['Year'].unique())
 
-fig_district_unemployment = px.line(
-    filtered_df_district.sort_values('month').rename(columns={'Number': 'Registered unemployed'}),
-    x='month',
-    y='Registered unemployed',
-    color='District Name',
-    title='Number of unemployed people by district through time')
+sunburst_df = get_sunburst_df(df_district_unemployment, year_radio)
+sunburst_fig = px.sunburst(sunburst_df, path=get_path(focus_on), values='Number', color_continuous_scale='RdBu',
+                           title=f'Unemployment distribution Per {focus_on} for {year_radio}')
+sunburst_fig.update_traces(textinfo="label+percent entry")
+sunburst_fig
+
+st.markdown('### Unemployment trends Over time')
+
+trend_over_time_df = get_trend_over_time_df(df_district_unemployment)
+
+fig_district_unemployment = px.line(trend_over_time_df, x='Month', y='Registered unemployed', color='District Name',
+                                    title='Number of unemployed people by district through time')
 
 fig_district_unemployment
 
+st.markdown('### Unemployment Distribution by Neighborhood')
 district_selected = st.selectbox(
     'Which district you want to display unemployment information by neighborhood for?',
-    unique_districts
+    np.sort(df_district_unemployment['District Name'].unique())
 )
 
-filtered_df_district_unemployment_treemap = df_district_unemployment[
-    (df_district_unemployment['Demand_occupation'] == 'Registered unemployed')
-    & (df_district_unemployment['District Name'] == district_selected)
-    ].groupby(['District Name', 'Neighborhood Name']).sum().reset_index().rename(
-    columns={'Number': 'Registered unemployed'})
+left_col, right_col = st.columns(2)
 
-fig_treemap_unemployment = px.treemap(filtered_df_district_unemployment_treemap,
-                                      path=['District Name', 'Neighborhood Name'],
-                                      values='Registered unemployed',
-                                      color='Registered unemployed',
-                                      title='Proportion of unemployed people for chosen district per neighborhood')
-fig_treemap_unemployment
+with left_col:
+    proportional = st.checkbox('Proportional to Population')
 
-df_district_unemployment_gender = pd.read_csv('archive/unemployment.csv', na_values='No consta')
-df_district_unemployment_gender.dropna(inplace=True)
-unique_districts_gender = np.sort(df_district_unemployment_gender['District Name'].unique())
-district_selected_gender = st.selectbox(
-    'Which district you want to show unemployment by gender information for?',
-    unique_districts_gender
-)
+with right_col:
+    include_year = st.checkbox('Include Year')
 
-filtered_df_district_gender = \
-    df_district_unemployment_gender[(df_district_unemployment_gender['Demand_occupation'] == 'Registered unemployed')
-                                    & (df_district_unemployment_gender['District Name'] == district_selected_gender)
-                                    & (df_district_unemployment_gender['Year'] == 2017)
-                                    & (df_district_unemployment_gender['Month'] == 'January')
-                                    ][['District Name', 'Gender', 'Number']].groupby(
-        ['District Name', 'Gender']).sum().reset_index()
-fig_pie_chart_unemployment_by_gender = px.pie(filtered_df_district_gender, values='Number', names='Gender',
-                                              title='Proportion of male/female unemployed for ' +
-                                                    district_selected_gender
-                                                    + ' district')
-fig_pie_chart_unemployment_by_gender
+treemap_df = get_treemap_df(df_district_unemployment, district_selected, proportional)
 
+treemap_fig = px.treemap(treemap_df,
+                         path=get_treemap_path(district_selected, include_year), values='Registered unemployed',
+                         title='Proportion of unemployed people for chosen district per neighborhood')
+treemap_fig.update_traces(root_color="lightgrey")
+treemap_fig.update_layout(margin=dict(t=50, l=25, r=25, b=25))
+treemap_fig
+
+st.markdown('### Conclusion')
+st.markdown('From the First chart, we can see there is an advantage to residing in a District with low Numbers of '
+            'Unemployment, such as "Les Corts", and it''s advisable to stay away from other districts with high '
+            'Unemployment Rates, such as "Sant Marti"')
+st.markdown('The "Unemployment trends Over time" chart helps us see the downward trend of Unemployment throughout the '
+            'city. As opposed to the previous chart, we can see that "Sant Marti" is the district with the fastest '
+            'decline in Unemployment Numbers, which can indicate a booming market.')
+st.markdown('Finally, using the "Unemployment Distribution by Neighborhood" Treemap, we can dive into the '
+            'Neighborhood level, after locking down a preferred District.')

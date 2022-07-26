@@ -1,74 +1,366 @@
-District.Name,Neighborhood.Name,Number
-Ciutat Vella,"Sant Pere, Santa Caterina i la Ribera",22721
-Ciutat Vella,el Barri Gòtic,16062
-Ciutat Vella,el Raval,47608
-Ciutat Vella,la Barceloneta,14996
-Eixample,Sant Antoni,38345
-Eixample,el Fort Pienc,32016
-Eixample,l'Antiga Esquerra de l'Eixample,42284
-Eixample,la Dreta de l'Eixample,44052
-Eixample,la Nova Esquerra de l'Eixample,58180
-Eixample,la Sagrada Família,51539
-Gràcia,Vallcarca i els Penitents,15759
-Gràcia,el Camp d'en Grassot i Gràcia Nova,34329
-Gràcia,el Coll,7412
-Gràcia,la Salut,13185
-Gràcia,la Vila de Gràcia,50662
-Horta-Guinardó,Can Baró,8994
-Horta-Guinardó,Horta,26715
-Horta-Guinardó,Montbau,5102
-Horta-Guinardó,Sant Genís dels Agudells,6854
-Horta-Guinardó,el Baix Guinardó,25672
-Horta-Guinardó,el Carmel,31551
-Horta-Guinardó,el Guinardó,36467
-Horta-Guinardó,la Clota,610
-Horta-Guinardó,la Font d'en Fargues,9383
-Horta-Guinardó,la Teixonera,11619
-Horta-Guinardó,la Vall d'Hebron,5784
-Les Corts,Pedralbes,12076
-Les Corts,la Maternitat i Sant Ramon,23948
-Les Corts,les Corts,46009
-Nou Barris,Can Peguera,2271
-Nou Barris,Canyelles,6856
-Nou Barris,Ciutat Meridiana,10342
-Nou Barris,Porta,25000
-Nou Barris,Torre Baró,2856
-Nou Barris,Vallbona,1372
-Nou Barris,Verdun,12353
-Nou Barris,Vilapicina i la Torre Llobeta,25591
-Nou Barris,el Turó de la Peira,15467
-Nou Barris,la Guineueta,15231
-Nou Barris,la Prosperitat,26389
-Nou Barris,la Trinitat Nova,7261
-Nou Barris,les Roquetes,15590
-Sant Andreu,Baró de Viver,2539
-Sant Andreu,Navas,22129
-Sant Andreu,Sant Andreu,57183
-Sant Andreu,el Bon Pastor,12560
-Sant Andreu,el Congrés i els Indians,14116
-Sant Andreu,la Sagrera,29084
-Sant Andreu,la Trinitat Vella,9983
-Sant Martí,Diagonal Mar i el Front Marítim del Poblenou,13629
-Sant Martí,Provençals del Poblenou,20487
-Sant Martí,Sant Martí de Provençals,26146
-Sant Martí,el Besòs i el Maresme,23009
-Sant Martí,el Camp de l'Arpa del Clot,38168
-Sant Martí,el Clot,27039
-Sant Martí,el Parc i la Llacuna del Poblenou,15134
-Sant Martí,el Poblenou,33843
-Sant Martí,la Verneda i la Pau,28691
-Sant Martí,la Vila Olímpica del Poblenou,9367
-Sants-Montjuïc,Hostafrancs,15904
-Sants-Montjuïc,Sants,41127
-Sants-Montjuïc,Sants - Badal,23987
-Sants-Montjuïc,el Poble Sec,40228
-Sants-Montjuïc,la Bordeta,18530
-Sants-Montjuïc,la Font de la Guatlla,10401
-Sants-Montjuïc,la Marina de Port,30584
-Sants-Montjuïc,la Marina del Prat Vermell,1149
-Sarrià-Sant Gervasi,Sant Gervasi - Galvany,47666
-Sarrià-Sant Gervasi,Sant Gervasi - la Bonanova,25774
-Sarrià-Sant Gervasi,Sarrià,25032
-Sarrià-Sant Gervasi,"Vallvidrera, el Tibidabo i les Planes",4670
-Sarrià-Sant Gervasi,el Putxet i el Farró,29470
-Sarrià-Sant Gervasi,les Tres Torres,16667
+,District.Name,Neighborhood.Name,Year,Number
+0,Ciutat Vella,"Sant Pere, Santa Caterina i la Ribera",2013,22769
+1,Ciutat Vella,"Sant Pere, Santa Caterina i la Ribera",2014,22358
+2,Ciutat Vella,"Sant Pere, Santa Caterina i la Ribera",2015,22457
+3,Ciutat Vella,"Sant Pere, Santa Caterina i la Ribera",2016,22306
+4,Ciutat Vella,"Sant Pere, Santa Caterina i la Ribera",2017,22721
+5,Ciutat Vella,el Barri Gòtic,2013,16267
+6,Ciutat Vella,el Barri Gòtic,2014,15734
+7,Ciutat Vella,el Barri Gòtic,2015,15484
+8,Ciutat Vella,el Barri Gòtic,2016,15614
+9,Ciutat Vella,el Barri Gòtic,2017,16062
+10,Ciutat Vella,el Raval,2013,48800
+11,Ciutat Vella,el Raval,2014,47489
+12,Ciutat Vella,el Raval,2015,47142
+13,Ciutat Vella,el Raval,2016,47129
+14,Ciutat Vella,el Raval,2017,47608
+15,Ciutat Vella,la Barceloneta,2013,15503
+16,Ciutat Vella,la Barceloneta,2014,15104
+17,Ciutat Vella,la Barceloneta,2015,15032
+18,Ciutat Vella,la Barceloneta,2016,15021
+19,Ciutat Vella,la Barceloneta,2017,14996
+20,Eixample,Sant Antoni,2013,38260
+21,Eixample,Sant Antoni,2014,38096
+22,Eixample,Sant Antoni,2015,38033
+23,Eixample,Sant Antoni,2016,38184
+24,Eixample,Sant Antoni,2017,38345
+25,Eixample,el Fort Pienc,2013,31738
+26,Eixample,el Fort Pienc,2014,31494
+27,Eixample,el Fort Pienc,2015,31543
+28,Eixample,el Fort Pienc,2016,31653
+29,Eixample,el Fort Pienc,2017,32016
+30,Eixample,l'Antiga Esquerra de l'Eixample,2013,41773
+31,Eixample,l'Antiga Esquerra de l'Eixample,2014,41717
+32,Eixample,l'Antiga Esquerra de l'Eixample,2015,41664
+33,Eixample,l'Antiga Esquerra de l'Eixample,2016,41854
+34,Eixample,l'Antiga Esquerra de l'Eixample,2017,42284
+35,Eixample,la Dreta de l'Eixample,2013,43384
+36,Eixample,la Dreta de l'Eixample,2014,43340
+37,Eixample,la Dreta de l'Eixample,2015,43556
+38,Eixample,la Dreta de l'Eixample,2016,43644
+39,Eixample,la Dreta de l'Eixample,2017,44052
+40,Eixample,la Nova Esquerra de l'Eixample,2013,57819
+41,Eixample,la Nova Esquerra de l'Eixample,2014,57619
+42,Eixample,la Nova Esquerra de l'Eixample,2015,57665
+43,Eixample,la Nova Esquerra de l'Eixample,2016,57648
+44,Eixample,la Nova Esquerra de l'Eixample,2017,58180
+45,Eixample,la Sagrada Família,2013,51806
+46,Eixample,la Sagrada Família,2014,51299
+47,Eixample,la Sagrada Família,2015,51097
+48,Eixample,la Sagrada Família,2016,51322
+49,Eixample,la Sagrada Família,2017,51539
+50,Gràcia,Vallcarca i els Penitents,2013,15453
+51,Gràcia,Vallcarca i els Penitents,2014,15413
+52,Gràcia,Vallcarca i els Penitents,2015,15492
+53,Gràcia,Vallcarca i els Penitents,2016,15591
+54,Gràcia,Vallcarca i els Penitents,2017,15759
+55,Gràcia,el Camp d'en Grassot i Gràcia Nova,2013,34439
+56,Gràcia,el Camp d'en Grassot i Gràcia Nova,2014,34043
+57,Gràcia,el Camp d'en Grassot i Gràcia Nova,2015,33918
+58,Gràcia,el Camp d'en Grassot i Gràcia Nova,2016,34234
+59,Gràcia,el Camp d'en Grassot i Gràcia Nova,2017,34329
+60,Gràcia,el Coll,2013,7232
+61,Gràcia,el Coll,2014,7203
+62,Gràcia,el Coll,2015,7349
+63,Gràcia,el Coll,2016,7391
+64,Gràcia,el Coll,2017,7412
+65,Gràcia,la Salut,2013,13210
+66,Gràcia,la Salut,2014,13166
+67,Gràcia,la Salut,2015,13227
+68,Gràcia,la Salut,2016,13118
+69,Gràcia,la Salut,2017,13185
+70,Gràcia,la Vila de Gràcia,2013,50615
+71,Gràcia,la Vila de Gràcia,2014,50448
+72,Gràcia,la Vila de Gràcia,2015,50415
+73,Gràcia,la Vila de Gràcia,2016,50584
+74,Gràcia,la Vila de Gràcia,2017,50662
+75,Horta-Guinardó,Can Baró,2013,8969
+76,Horta-Guinardó,Can Baró,2014,8859
+77,Horta-Guinardó,Can Baró,2015,8819
+78,Horta-Guinardó,Can Baró,2016,8965
+79,Horta-Guinardó,Can Baró,2017,8994
+80,Horta-Guinardó,Horta,2013,26543
+81,Horta-Guinardó,Horta,2014,26554
+82,Horta-Guinardó,Horta,2015,26467
+83,Horta-Guinardó,Horta,2016,26541
+84,Horta-Guinardó,Horta,2017,26715
+85,Horta-Guinardó,Montbau,2013,5111
+86,Horta-Guinardó,Montbau,2014,5047
+87,Horta-Guinardó,Montbau,2015,5046
+88,Horta-Guinardó,Montbau,2016,5053
+89,Horta-Guinardó,Montbau,2017,5102
+90,Horta-Guinardó,Sant Genís dels Agudells,2013,6935
+91,Horta-Guinardó,Sant Genís dels Agudells,2014,6884
+92,Horta-Guinardó,Sant Genís dels Agudells,2015,6754
+93,Horta-Guinardó,Sant Genís dels Agudells,2016,6725
+94,Horta-Guinardó,Sant Genís dels Agudells,2017,6854
+95,Horta-Guinardó,el Baix Guinardó,2013,25641
+96,Horta-Guinardó,el Baix Guinardó,2014,25527
+97,Horta-Guinardó,el Baix Guinardó,2015,25466
+98,Horta-Guinardó,el Baix Guinardó,2016,25547
+99,Horta-Guinardó,el Baix Guinardó,2017,25672
+100,Horta-Guinardó,el Carmel,2013,31789
+101,Horta-Guinardó,el Carmel,2014,31659
+102,Horta-Guinardó,el Carmel,2015,31456
+103,Horta-Guinardó,el Carmel,2016,31355
+104,Horta-Guinardó,el Carmel,2017,31551
+105,Horta-Guinardó,el Guinardó,2013,35679
+106,Horta-Guinardó,el Guinardó,2014,35534
+107,Horta-Guinardó,el Guinardó,2015,35773
+108,Horta-Guinardó,el Guinardó,2016,36136
+109,Horta-Guinardó,el Guinardó,2017,36467
+110,Horta-Guinardó,la Clota,2013,438
+111,Horta-Guinardó,la Clota,2014,521
+112,Horta-Guinardó,la Clota,2015,542
+113,Horta-Guinardó,la Clota,2016,583
+114,Horta-Guinardó,la Clota,2017,610
+115,Horta-Guinardó,la Font d'en Fargues,2013,9490
+116,Horta-Guinardó,la Font d'en Fargues,2014,9440
+117,Horta-Guinardó,la Font d'en Fargues,2015,9407
+118,Horta-Guinardó,la Font d'en Fargues,2016,9400
+119,Horta-Guinardó,la Font d'en Fargues,2017,9383
+120,Horta-Guinardó,la Teixonera,2013,11654
+121,Horta-Guinardó,la Teixonera,2014,11435
+122,Horta-Guinardó,la Teixonera,2015,11361
+123,Horta-Guinardó,la Teixonera,2016,11277
+124,Horta-Guinardó,la Teixonera,2017,11619
+125,Horta-Guinardó,la Vall d'Hebron,2013,5494
+126,Horta-Guinardó,la Vall d'Hebron,2014,5490
+127,Horta-Guinardó,la Vall d'Hebron,2015,5468
+128,Horta-Guinardó,la Vall d'Hebron,2016,5686
+129,Horta-Guinardó,la Vall d'Hebron,2017,5784
+130,Les Corts,Pedralbes,2013,11790
+131,Les Corts,Pedralbes,2014,11652
+132,Les Corts,Pedralbes,2015,11713
+133,Les Corts,Pedralbes,2016,11862
+134,Les Corts,Pedralbes,2017,12076
+135,Les Corts,la Maternitat i Sant Ramon,2013,23667
+136,Les Corts,la Maternitat i Sant Ramon,2014,23564
+137,Les Corts,la Maternitat i Sant Ramon,2015,23817
+138,Les Corts,la Maternitat i Sant Ramon,2016,23848
+139,Les Corts,la Maternitat i Sant Ramon,2017,23948
+140,Les Corts,les Corts,2013,46183
+141,Les Corts,les Corts,2014,45984
+142,Les Corts,les Corts,2015,46000
+143,Les Corts,les Corts,2016,45932
+144,Les Corts,les Corts,2017,46009
+145,Nou Barris,Can Peguera,2013,2230
+146,Nou Barris,Can Peguera,2014,2262
+147,Nou Barris,Can Peguera,2015,2275
+148,Nou Barris,Can Peguera,2016,2258
+149,Nou Barris,Can Peguera,2017,2271
+150,Nou Barris,Canyelles,2013,7102
+151,Nou Barris,Canyelles,2014,6981
+152,Nou Barris,Canyelles,2015,6953
+153,Nou Barris,Canyelles,2016,6923
+154,Nou Barris,Canyelles,2017,6856
+155,Nou Barris,Ciutat Meridiana,2013,10485
+156,Nou Barris,Ciutat Meridiana,2014,10171
+157,Nou Barris,Ciutat Meridiana,2015,10245
+158,Nou Barris,Ciutat Meridiana,2016,10041
+159,Nou Barris,Ciutat Meridiana,2017,10342
+160,Nou Barris,Porta,2013,24193
+161,Nou Barris,Porta,2014,24224
+162,Nou Barris,Porta,2015,24240
+163,Nou Barris,Porta,2016,24519
+164,Nou Barris,Porta,2017,25000
+165,Nou Barris,Torre Baró,2013,2192
+166,Nou Barris,Torre Baró,2014,2547
+167,Nou Barris,Torre Baró,2015,2727
+168,Nou Barris,Torre Baró,2016,2791
+169,Nou Barris,Torre Baró,2017,2856
+170,Nou Barris,Vallbona,2013,1346
+171,Nou Barris,Vallbona,2014,1310
+172,Nou Barris,Vallbona,2015,1335
+173,Nou Barris,Vallbona,2016,1352
+174,Nou Barris,Vallbona,2017,1372
+175,Nou Barris,Verdun,2013,12329
+176,Nou Barris,Verdun,2014,12122
+177,Nou Barris,Verdun,2015,12225
+178,Nou Barris,Verdun,2016,12260
+179,Nou Barris,Verdun,2017,12353
+180,Nou Barris,Vilapicina i la Torre Llobeta,2013,25543
+181,Nou Barris,Vilapicina i la Torre Llobeta,2014,25336
+182,Nou Barris,Vilapicina i la Torre Llobeta,2015,25451
+183,Nou Barris,Vilapicina i la Torre Llobeta,2016,25508
+184,Nou Barris,Vilapicina i la Torre Llobeta,2017,25591
+185,Nou Barris,el Turó de la Peira,2013,15593
+186,Nou Barris,el Turó de la Peira,2014,15466
+187,Nou Barris,el Turó de la Peira,2015,15389
+188,Nou Barris,el Turó de la Peira,2016,15364
+189,Nou Barris,el Turó de la Peira,2017,15467
+190,Nou Barris,la Guineueta,2013,15117
+191,Nou Barris,la Guineueta,2014,15056
+192,Nou Barris,la Guineueta,2015,15099
+193,Nou Barris,la Guineueta,2016,15043
+194,Nou Barris,la Guineueta,2017,15231
+195,Nou Barris,la Prosperitat,2013,26299
+196,Nou Barris,la Prosperitat,2014,26089
+197,Nou Barris,la Prosperitat,2015,25979
+198,Nou Barris,la Prosperitat,2016,26167
+199,Nou Barris,la Prosperitat,2017,26389
+200,Nou Barris,la Trinitat Nova,2013,7551
+201,Nou Barris,la Trinitat Nova,2014,7388
+202,Nou Barris,la Trinitat Nova,2015,7332
+203,Nou Barris,la Trinitat Nova,2016,7257
+204,Nou Barris,la Trinitat Nova,2017,7261
+205,Nou Barris,les Roquetes,2013,15768
+206,Nou Barris,les Roquetes,2014,15564
+207,Nou Barris,les Roquetes,2015,15398
+208,Nou Barris,les Roquetes,2016,15398
+209,Nou Barris,les Roquetes,2017,15590
+210,Sant Andreu,Baró de Viver,2013,2415
+211,Sant Andreu,Baró de Viver,2014,2481
+212,Sant Andreu,Baró de Viver,2015,2482
+213,Sant Andreu,Baró de Viver,2016,2507
+214,Sant Andreu,Baró de Viver,2017,2539
+215,Sant Andreu,Navas,2013,21811
+216,Sant Andreu,Navas,2014,21741
+217,Sant Andreu,Navas,2015,21966
+218,Sant Andreu,Navas,2016,22080
+219,Sant Andreu,Navas,2017,22129
+220,Sant Andreu,Sant Andreu,2013,56476
+221,Sant Andreu,Sant Andreu,2014,56269
+222,Sant Andreu,Sant Andreu,2015,56503
+223,Sant Andreu,Sant Andreu,2016,56683
+224,Sant Andreu,Sant Andreu,2017,57183
+225,Sant Andreu,el Bon Pastor,2013,12800
+226,Sant Andreu,el Bon Pastor,2014,12670
+227,Sant Andreu,el Bon Pastor,2015,12554
+228,Sant Andreu,el Bon Pastor,2016,12589
+229,Sant Andreu,el Bon Pastor,2017,12560
+230,Sant Andreu,el Congrés i els Indians,2013,14010
+231,Sant Andreu,el Congrés i els Indians,2014,13921
+232,Sant Andreu,el Congrés i els Indians,2015,14043
+233,Sant Andreu,el Congrés i els Indians,2016,14044
+234,Sant Andreu,el Congrés i els Indians,2017,14116
+235,Sant Andreu,la Sagrera,2013,28911
+236,Sant Andreu,la Sagrera,2014,28660
+237,Sant Andreu,la Sagrera,2015,28887
+238,Sant Andreu,la Sagrera,2016,28796
+239,Sant Andreu,la Sagrera,2017,29084
+240,Sant Andreu,la Trinitat Vella,2013,10423
+241,Sant Andreu,la Trinitat Vella,2014,10241
+242,Sant Andreu,la Trinitat Vella,2015,10059
+243,Sant Andreu,la Trinitat Vella,2016,10032
+244,Sant Andreu,la Trinitat Vella,2017,9983
+245,Sant Martí,Diagonal Mar i el Front Marítim del Poblenou,2013,12894
+246,Sant Martí,Diagonal Mar i el Front Marítim del Poblenou,2014,13156
+247,Sant Martí,Diagonal Mar i el Front Marítim del Poblenou,2015,13369
+248,Sant Martí,Diagonal Mar i el Front Marítim del Poblenou,2016,13397
+249,Sant Martí,Diagonal Mar i el Front Marítim del Poblenou,2017,13629
+250,Sant Martí,Provençals del Poblenou,2013,20052
+251,Sant Martí,Provençals del Poblenou,2014,20096
+252,Sant Martí,Provençals del Poblenou,2015,20161
+253,Sant Martí,Provençals del Poblenou,2016,20369
+254,Sant Martí,Provençals del Poblenou,2017,20487
+255,Sant Martí,Sant Martí de Provençals,2013,25994
+256,Sant Martí,Sant Martí de Provençals,2014,25917
+257,Sant Martí,Sant Martí de Provençals,2015,25975
+258,Sant Martí,Sant Martí de Provençals,2016,26010
+259,Sant Martí,Sant Martí de Provençals,2017,26146
+260,Sant Martí,el Besòs i el Maresme,2013,23118
+261,Sant Martí,el Besòs i el Maresme,2014,22829
+262,Sant Martí,el Besòs i el Maresme,2015,22834
+263,Sant Martí,el Besòs i el Maresme,2016,22746
+264,Sant Martí,el Besòs i el Maresme,2017,23009
+265,Sant Martí,el Camp de l'Arpa del Clot,2013,37933
+266,Sant Martí,el Camp de l'Arpa del Clot,2014,37795
+267,Sant Martí,el Camp de l'Arpa del Clot,2015,38178
+268,Sant Martí,el Camp de l'Arpa del Clot,2016,38104
+269,Sant Martí,el Camp de l'Arpa del Clot,2017,38168
+270,Sant Martí,el Clot,2013,27169
+271,Sant Martí,el Clot,2014,27035
+272,Sant Martí,el Clot,2015,26933
+273,Sant Martí,el Clot,2016,26898
+274,Sant Martí,el Clot,2017,27039
+275,Sant Martí,el Parc i la Llacuna del Poblenou,2013,14355
+276,Sant Martí,el Parc i la Llacuna del Poblenou,2014,14613
+277,Sant Martí,el Parc i la Llacuna del Poblenou,2015,14708
+278,Sant Martí,el Parc i la Llacuna del Poblenou,2016,14838
+279,Sant Martí,el Parc i la Llacuna del Poblenou,2017,15134
+280,Sant Martí,el Poblenou,2013,32838
+281,Sant Martí,el Poblenou,2014,33011
+282,Sant Martí,el Poblenou,2015,33437
+283,Sant Martí,el Poblenou,2016,33586
+284,Sant Martí,el Poblenou,2017,33843
+285,Sant Martí,la Verneda i la Pau,2013,29154
+286,Sant Martí,la Verneda i la Pau,2014,28813
+287,Sant Martí,la Verneda i la Pau,2015,28738
+288,Sant Martí,la Verneda i la Pau,2016,28645
+289,Sant Martí,la Verneda i la Pau,2017,28691
+290,Sant Martí,la Vila Olímpica del Poblenou,2013,9319
+291,Sant Martí,la Vila Olímpica del Poblenou,2014,9364
+292,Sant Martí,la Vila Olímpica del Poblenou,2015,9326
+293,Sant Martí,la Vila Olímpica del Poblenou,2016,9335
+294,Sant Martí,la Vila Olímpica del Poblenou,2017,9367
+295,Sants-Montjuïc,Hostafrancs,2013,15960
+296,Sants-Montjuïc,Hostafrancs,2014,15666
+297,Sants-Montjuïc,Hostafrancs,2015,15747
+298,Sants-Montjuïc,Hostafrancs,2016,15889
+299,Sants-Montjuïc,Hostafrancs,2017,15904
+300,Sants-Montjuïc,Sants,2013,41057
+301,Sants-Montjuïc,Sants,2014,40854
+302,Sants-Montjuïc,Sants,2015,40687
+303,Sants-Montjuïc,Sants,2016,40785
+304,Sants-Montjuïc,Sants,2017,41127
+305,Sants-Montjuïc,Sants - Badal,2013,24351
+306,Sants-Montjuïc,Sants - Badal,2014,24128
+307,Sants-Montjuïc,Sants - Badal,2015,24014
+308,Sants-Montjuïc,Sants - Badal,2016,23906
+309,Sants-Montjuïc,Sants - Badal,2017,23987
+310,Sants-Montjuïc,el Poble Sec,2013,40984
+311,Sants-Montjuïc,el Poble Sec,2014,40278
+312,Sants-Montjuïc,el Poble Sec,2015,40208
+313,Sants-Montjuïc,el Poble Sec,2016,40055
+314,Sants-Montjuïc,el Poble Sec,2017,40228
+315,Sants-Montjuïc,la Bordeta,2013,18577
+316,Sants-Montjuïc,la Bordeta,2014,18398
+317,Sants-Montjuïc,la Bordeta,2015,18378
+318,Sants-Montjuïc,la Bordeta,2016,18512
+319,Sants-Montjuïc,la Bordeta,2017,18530
+320,Sants-Montjuïc,la Font de la Guatlla,2013,10313
+321,Sants-Montjuïc,la Font de la Guatlla,2014,10309
+322,Sants-Montjuïc,la Font de la Guatlla,2015,10366
+323,Sants-Montjuïc,la Font de la Guatlla,2016,10302
+324,Sants-Montjuïc,la Font de la Guatlla,2017,10401
+325,Sants-Montjuïc,la Marina de Port,2013,30271
+326,Sants-Montjuïc,la Marina de Port,2014,30047
+327,Sants-Montjuïc,la Marina de Port,2015,30232
+328,Sants-Montjuïc,la Marina de Port,2016,30385
+329,Sants-Montjuïc,la Marina de Port,2017,30584
+330,Sants-Montjuïc,la Marina del Prat Vermell,2013,1172
+331,Sants-Montjuïc,la Marina del Prat Vermell,2014,1144
+332,Sants-Montjuïc,la Marina del Prat Vermell,2015,1125
+333,Sants-Montjuïc,la Marina del Prat Vermell,2016,1143
+334,Sants-Montjuïc,la Marina del Prat Vermell,2017,1149
+335,Sarrià-Sant Gervasi,Sant Gervasi - Galvany,2013,46486
+336,Sarrià-Sant Gervasi,Sant Gervasi - Galvany,2014,46466
+337,Sarrià-Sant Gervasi,Sant Gervasi - Galvany,2015,46708
+338,Sarrià-Sant Gervasi,Sant Gervasi - Galvany,2016,47089
+339,Sarrià-Sant Gervasi,Sant Gervasi - Galvany,2017,47666
+340,Sarrià-Sant Gervasi,Sant Gervasi - la Bonanova,2013,24607
+341,Sarrià-Sant Gervasi,Sant Gervasi - la Bonanova,2014,24926
+342,Sarrià-Sant Gervasi,Sant Gervasi - la Bonanova,2015,25246
+343,Sarrià-Sant Gervasi,Sant Gervasi - la Bonanova,2016,25665
+344,Sarrià-Sant Gervasi,Sant Gervasi - la Bonanova,2017,25774
+345,Sarrià-Sant Gervasi,Sarrià,2013,24450
+346,Sarrià-Sant Gervasi,Sarrià,2014,24523
+347,Sarrià-Sant Gervasi,Sarrià,2015,24641
+348,Sarrià-Sant Gervasi,Sarrià,2016,24799
+349,Sarrià-Sant Gervasi,Sarrià,2017,25032
+350,Sarrià-Sant Gervasi,"Vallvidrera, el Tibidabo i les Planes",2013,4437
+351,Sarrià-Sant Gervasi,"Vallvidrera, el Tibidabo i les Planes",2014,4514
+352,Sarrià-Sant Gervasi,"Vallvidrera, el Tibidabo i les Planes",2015,4602
+353,Sarrià-Sant Gervasi,"Vallvidrera, el Tibidabo i les Planes",2016,4632
+354,Sarrià-Sant Gervasi,"Vallvidrera, el Tibidabo i les Planes",2017,4670
+355,Sarrià-Sant Gervasi,el Putxet i el Farró,2013,29302
+356,Sarrià-Sant Gervasi,el Putxet i el Farró,2014,29171
+357,Sarrià-Sant Gervasi,el Putxet i el Farró,2015,29139
+358,Sarrià-Sant Gervasi,el Putxet i el Farró,2016,29368
+359,Sarrià-Sant Gervasi,el Putxet i el Farró,2017,29470
+360,Sarrià-Sant Gervasi,les Tres Torres,2013,15984
+361,Sarrià-Sant Gervasi,les Tres Torres,2014,16161
+362,Sarrià-Sant Gervasi,les Tres Torres,2015,16498
+363,Sarrià-Sant Gervasi,les Tres Torres,2016,16473
+364,Sarrià-Sant Gervasi,les Tres Torres,2017,16667

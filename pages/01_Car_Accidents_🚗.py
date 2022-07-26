@@ -29,6 +29,7 @@ def get_geopoints(chart_type):
 
 
 def get_victims_distribution(chart_type, population_dataframe):
+    population_dataframe = population_dataframe[population_dataframe['Year'] == 2017]
     if chart_type == "District":
         df = pd.DataFrame({'Accident Count': df_victims['District Name'].value_counts()})
         grouped_population_df = population_dataframe.groupby('District.Name')[['District.Name', 'Number']].sum()
@@ -41,7 +42,7 @@ def get_victims_distribution(chart_type, population_dataframe):
     return df
 
 
-st.markdown('### Card Accident Distribution')
+st.markdown('### Car Accident Distribution')
 
 left_col, right_col = st.columns(2)
 
