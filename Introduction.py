@@ -9,6 +9,9 @@ footer:after {
     padding: 5px 0px;
     top: 3px;
 }
+.block-container {
+    padding: 1rem !important
+}
 </style>
 """
 
@@ -25,4 +28,6 @@ st.markdown("To this end, we have created this website, that will help you to un
             "different charts, highlighting different aspects of life in Barcelona, where you will compare your "
             "favourite districts, and figure out the best match for yourself, or your family.")
 st.markdown("#### Happy House Hunting")
+
+st.markdown("<br><hr><br><span style='color:red'>This Web Application is developped for EPITA, by Leonid Seniukov and Elie Yaacoub</span>", unsafe_allow_html=True)
 st.markdown(footer, unsafe_allow_html=True)

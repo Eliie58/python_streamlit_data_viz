@@ -6,6 +6,7 @@ from Introduction import footer
 
 st.markdown("# Life Expectancy 👵 👴")
 st.sidebar.markdown("# Life Expectancy 👵 👴")
+st.markdown(footer, unsafe_allow_html=True)
 
 st.markdown("Who doesn't wanna live to an old age, and enjoy life until the last possible second? Many factors can "
             "affect a person's life expectancy, ranging from the obvious (pollution, safety) to the unexpected such "
@@ -44,5 +45,3 @@ fig_bar_chart_life_expectancy = px.bar(df_life_expectancy_bar_chart.iloc[
                                            number_of_best_districts_from[1])
                                              + ' in the rating of neighborhoods with highest life expectancy')
 fig_bar_chart_life_expectancy
-
-st.markdown(footer, unsafe_allow_html=True)

@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 
 st.markdown("# Child Birth 👶")
 st.sidebar.markdown("# Child Birth 👶")
+st.markdown(footer, unsafe_allow_html=True)
 
 st.markdown("The socio-economic status of a region may change how easy or difficult it may be to have children. New "
             "families want to live in regions where birthing and raising small children is easy and widespread. This "
@@ -51,4 +52,3 @@ fig_birth.update_xaxes(title='District')
 fig_birth.update_yaxes(title='Total number of children born')
 fig_birth
 
-st.markdown(footer, unsafe_allow_html=True)

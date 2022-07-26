@@ -6,6 +6,7 @@ from Introduction import footer
 
 st.markdown("# Unemployment 💼")
 st.sidebar.markdown("# Unemployment 💼")
+st.markdown(footer, unsafe_allow_html=True)
 
 st.markdown("Unemployment rates can differ greatly from one district to another, based on multiple factors, "
             "including transportation networks, distance to financial and governmental centers, "
@@ -84,4 +85,3 @@ fig_pie_chart_unemployment_by_gender = px.pie(filtered_df_district_gender, value
                                                     + ' district')
 fig_pie_chart_unemployment_by_gender
 
-st.markdown(footer, unsafe_allow_html=True)

@@ -7,6 +7,7 @@ from Introduction import footer
 
 st.markdown("# Transportation 🚌")
 st.sidebar.markdown("# Transportation 🚌")
+st.markdown(footer, unsafe_allow_html=True)
 
 st.markdown("Access to public transport is a top priority for anyone who does not rely on a car, or other personal "
             "transportation device (bike, scooter, ...) as a main means of transport. Let's discover the distribution "
@@ -75,4 +76,3 @@ fig_map_transport.update_layout(mapbox_style='open-street-map')
 fig_map_transport.update_layout(margin={'r': 0, 't': 0, 'l': 0, 'b': 0})
 fig_map_transport
 
-st.markdown(footer, unsafe_allow_html=True)

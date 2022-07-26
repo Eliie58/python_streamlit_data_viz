@@ -5,6 +5,7 @@ from Introduction import footer
 
 st.markdown("# Immigration 🛬")
 st.sidebar.markdown("# Immigration 🛬")
+st.markdown(footer, unsafe_allow_html=True)
 
 df_immigrants = pd.read_csv('archive/immigrants_by_nationality.csv', na_values='No consta').dropna()
 
@@ -24,5 +25,3 @@ fig_pie_chart = px.pie(df_immigrants_by_district_and_nationality, values='Number
                        title='Distribution of immigrants from ' + chosen_nationality + ' per district')
 
 fig_pie_chart
-
-st.markdown(footer, unsafe_allow_html=True)
