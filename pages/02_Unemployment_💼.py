@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
 import plotly.express as px
 from Introduction import footer
 
 st.markdown("# Unemployment 💼")
 st.sidebar.markdown("# Unemployment 💼")
 st.markdown(footer, unsafe_allow_html=True)
+
 
 def get_path(focus):
     if focus == 'Gender':
@@ -63,8 +63,8 @@ def get_treemap_df(df, district, is_proportional):
         pop_df = pd.read_csv('archive/population.csv')
         pop_df = pop_df[pop_df['District.Name'] == district]
         # Merge treemap with population Information
-        df_copy = df_copy.merge(pop_df, left_on=['Neighborhood Name', 'Year'], right_on=['Neighborhood.Name', 'Year']
-                                , how='inner')
+        df_copy = df_copy.merge(pop_df, left_on=['Neighborhood Name', 'Year'], right_on=['Neighborhood.Name', 'Year'],
+                                how='inner')
         df_copy['Registered unemployed'] = (df_copy['Number_x'] * 100 / df_copy['Number_y'])
     else:
         df_copy = df_copy.rename(columns={'Number': 'Registered unemployed'})
@@ -104,7 +104,7 @@ sunburst_df = get_sunburst_df(df_district_unemployment, year_radio)
 sunburst_fig = px.sunburst(sunburst_df, path=get_path(focus_on), values='Number', color_continuous_scale='RdBu',
                            title=f'Unemployment distribution Per {focus_on} for {year_radio}')
 sunburst_fig.update_traces(textinfo="label+percent entry")
-sunburst_fig
+st.plotly_chart(sunburst_fig)
 
 st.markdown('### Unemployment trends Over time')
 
@@ -113,12 +113,12 @@ trend_over_time_df = get_trend_over_time_df(df_district_unemployment)
 fig_district_unemployment = px.line(trend_over_time_df, x='Month', y='Registered unemployed', color='District Name',
                                     title='Number of unemployed people by district through time')
 
-fig_district_unemployment
+st.plotly_chart(fig_district_unemployment)
 
 st.markdown('### Unemployment Distribution by Neighborhood')
 district_selected = st.selectbox(
     'Which district you want to display unemployment information by neighborhood for?',
-    np.sort(df_district_unemployment['District Name'].unique())
+    sorted(df_district_unemployment['District Name'].unique())
 )
 
 left_col, right_col = st.columns(2)
@@ -136,7 +136,7 @@ treemap_fig = px.treemap(treemap_df,
                          title='Proportion of unemployed people for chosen district per neighborhood')
 treemap_fig.update_traces(root_color="lightgrey")
 treemap_fig.update_layout(margin=dict(t=50, l=25, r=25, b=25))
-treemap_fig
+st.plotly_chart(treemap_fig)
 
 st.markdown('### Conclusion')
 st.markdown('From the First chart, we can see there is an advantage to residing in a District with low Numbers of '

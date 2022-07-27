@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
 import plotly.express as px
 from Introduction import footer
 
@@ -12,36 +11,42 @@ st.markdown("Who doesn't wanna live to an old age, and enjoy life until the last
             "affect a person's life expectancy, ranging from the obvious (pollution, safety) to the unexpected such "
             "as distance from the sea. In the below charts we will see the life Expectancy in Barcelona.")
 
-df_life_expectancy = pd.read_csv('archive/life_expectancy.csv')
-df_life_expectancy.dropna(inplace=True)
+st.markdown('### Neighborhood Life Expectancy Ranking')
 
-selected_time_period_life_expectancy = st.selectbox(
-    'For what time period you want to display life expectancy information?',
-    np.sort(df_life_expectancy.columns[1:-2]))
 
-df_life_expectancy_mean_by_neighborhood = df_life_expectancy.drop(columns=['Gender']).groupby(
-    by=['Neighborhood']).mean().reset_index()
+def get_life_expectancy_dfs():
+    # Read Dataframe from CSV
+    df = pd.read_csv('archive/life_expectancy.csv').dropna()
+    # Split into 2 Dataframes, one for each gender
+    return df[df['Gender'] == 'Male'], df[df['Gender'] == 'Female']
 
-df_life_expectancy_bar_chart = df_life_expectancy_mean_by_neighborhood.loc[:,
-                               ['Neighborhood', selected_time_period_life_expectancy]]
-df_life_expectancy_bar_chart['Neighborhood'] = df_life_expectancy_mean_by_neighborhood['Neighborhood'].astype('string')
-df_life_expectancy_bar_chart[selected_time_period_life_expectancy] = df_life_expectancy_mean_by_neighborhood[
-    selected_time_period_life_expectancy].astype('float')
-df_life_expectancy_bar_chart.sort_values(by=selected_time_period_life_expectancy, ascending=False, inplace=True)
 
-number_of_best_districts_from = st.slider(
-    'From what best neighborhood No in the rating by life expectancy you want to display?',
-    1,
-    len(df_life_expectancy_bar_chart['Neighborhood'].unique()),
-    (1, 5))
+def plot_df(df, date_period, ranking, gender):
+    # Sort, and reset the index
+    df = df.sort_values(by=[date_period], ascending=False, inplace=False).reset_index(drop=True)
+    # Increment the index by 1, to start from 1 instead of 0
+    df.index = df.index + 1
+    # Create a new Column for Ranking
+    df['Ranking'] = df.index
+    life_expectancy_fig = px.bar(df.loc[ranking[0]: ranking[1]], x='Neighborhood', y=date_period, text='Ranking',
+                                 labels={date_period: 'Average Life Expectancy'},
+                                 title=f'{gender} Life Expectancy By Neighborhood (Rank {ranking[0]} to {ranking[1]})')
+    life_expectancy_fig.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)',
+                                      marker_line_width=1.5, opacity=0.6)
+    st.plotly_chart(life_expectancy_fig)
 
-fig_bar_chart_life_expectancy = px.bar(df_life_expectancy_bar_chart.iloc[
-                                       (number_of_best_districts_from[0] - 1):(number_of_best_districts_from[1]),
-                                       :],
-                                       x='Neighborhood',
-                                       y=selected_time_period_life_expectancy,
-                                       labels={selected_time_period_life_expectancy: 'average life expectancy'},
-                                       title='Displaying No' + str(number_of_best_districts_from[0]) + ' - No' + str(
-                                           number_of_best_districts_from[1])
-                                             + ' in the rating of neighborhoods with highest life expectancy')
-fig_bar_chart_life_expectancy
+
+male_df, female_df = get_life_expectancy_dfs()
+
+left_col, right_col = st.columns(2)
+
+df_male_life_expectancy, df_female_life_expectancy = get_life_expectancy_dfs()
+with left_col:
+    date_period_select = st.selectbox('Choose the appropriate Date Period',
+                                      sorted(df_male_life_expectancy.columns[1:-2]))
+
+with right_col:
+    ranking_slider = st.slider('Choose the ranking you want to Visualize', 1, len(df_male_life_expectancy), (1, 5))
+
+plot_df(df_female_life_expectancy, date_period_select, ranking_slider, 'Female')
+plot_df(df_male_life_expectancy, date_period_select, ranking_slider, 'Male')
