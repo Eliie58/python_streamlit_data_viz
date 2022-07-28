@@ -14,7 +14,7 @@ st.markdown('Are you moving to Barcelona in search for a job? This page will hel
             'for finding a job opportunity')
 st.markdown('### [Transportation 🚌](Transportation_🚌)', unsafe_allow_html=True)
 st.markdown('This page is your go to guide to understand the public transport network in Barcelona')
-st.markdown('### [Life Expectancy 👵 👴](Life_Excpectancy_👵_👴)', unsafe_allow_html=True)
+st.markdown('### [Life Expectancy 👵 👴](Life_Expectancy_👵_👴)', unsafe_allow_html=True)
 st.markdown('Life expectancy measures can be a great way to understand the overall health conditions in a District. '
             'Use this page as a shortuct in your reasearch for the healthiest district in Barcelona')
 st.markdown('### [Child Birth 👶](Child_Birth_👶)', unsafe_allow_html=True)

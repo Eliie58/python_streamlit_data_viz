@@ -42,8 +42,8 @@ def get_trend_over_time_df(df):
                     'June': '06', 'July': '07', 'August': '08', 'September': '09',
                     'October': '10', 'November': '11', 'December': '12'}
     # Add a new column to use for Sorting
-    df_copy['Month'] = df_copy['Year'].map(str) + '-' + df_copy['Month'].map(month_labels)
-    return df_copy.sort_values('Month').rename(columns={'Number': 'Registered unemployed'})
+    df_copy['Year'] = df_copy['Year'].map(str) + '-' + df_copy['Month'].map(month_labels)
+    return df_copy.sort_values('Year').rename(columns={'Number': 'Registered unemployed'})
 
 
 def get_treemap_df(df, district, is_proportional):
@@ -110,7 +110,7 @@ st.markdown('### Unemployment trends Over time')
 
 trend_over_time_df = get_trend_over_time_df(df_district_unemployment)
 
-fig_district_unemployment = px.line(trend_over_time_df, x='Month', y='Registered unemployed', color='District Name',
+fig_district_unemployment = px.line(trend_over_time_df, x='Year', y='Registered unemployed', color='District Name',
                                     title='Number of unemployed people by district through time')
 
 st.plotly_chart(fig_district_unemployment)
